@@ -110,21 +110,22 @@
 ;;> the pattern to match from \scheme{<n>} times.
 
 ;;> \example{(match (list 1 2 3) ((a b *.. 2 4) b))}
-; (test-equal '() (match (list 1 2 3) ((a b *.. 2 4)  b)))
+(test-equal '(2 3) (match (list 1 2 3) ((a b *.. 2 4)  b)))
 ;;> \example{(match (list 1 2 3 4 5 6) ((a b *.. 2 4) b))}
-; (test-equal '(2 3 4 5 6) (match (list 1 2 3 4 5 6) ((a b *.. 2 4)  b)))
+;no matching patterns
 ;;> \example{(match (list 1 2 3 4) ((a b *.. 2 4 c) c))}
-; (test-equal '(2 3) (match (list 1 2 3 4 ) ((a b *.. 2 4 c)  c)))
+(test-equal 4 (match (list 1 2 3 4 ) ((a b *.. 2 4 c)  c)))
 
 ;;> The \scheme{(<expr> =.. <n>)} syntax is a shorthand for
 ;;> \scheme{(<expr> *.. <n> <n>)}.
 
 ;;> \example{(match (list 1 2) ((a b =.. 2) b))}
 ; (test-equal '() (match (list 1 2) ((a b =.. 2)  b)))
+;no matching patterns
 ;;> \example{(match (list 1 2 3) ((a b =.. 2) b))}
-; (test-equal '(2 3) (match (list 1 2 3) ((a b =.. 2)  b)))
+(test-equal '(2 3) (match (list 1 2 3) ((a b =.. 2)  b)))
 ;;> \example{(match (list 1 2 3 4) ((a b =.. 2) b))}
-; (test-equal '() (match (list 1 2 3) ((a b =.. 2)  b)))
+;no matching patterns
 
 ;;> The boolean operators \scheme{and}, \scheme{or} and \scheme{not}
 ;;> can be used to group and negate patterns analogously to their
