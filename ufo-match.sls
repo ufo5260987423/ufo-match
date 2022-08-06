@@ -7,7 +7,7 @@
     match-let* 
     match-letrec
     match-named-let
-    :_ ___ **1 =.. *.. *** ? $ struct & object)
+    :_ ___ **1 =.. *.. *** ? $ struct & object get!)
   (import 
     (rnrs base)
     (rnrs lists)
@@ -16,7 +16,8 @@
     (rnrs records procedural)
     (rnrs records inspection)
     (rnrs syntax-case)
-    (only (chezscheme) iota include)
+    (only (chezscheme) iota)
+    ; (only (chezscheme) iota include)
    ;; avoid dependence on chez-srfi (apart for tests)
    ;; (srfi private aux-keywords)
    ;; (srfi private include)
@@ -42,7 +43,7 @@
       [(_ name* ...)
        (begin (define-auxiliary-keyword name*) ...)]))
 
-  (define-auxiliary-keywords :_ ___ **1 =.. *.. *** ? $ struct & object)
+  (define-auxiliary-keywords :_ ___ **1 =.. *.. *** ? $ struct & object get!)
 
   (define-syntax is-a?
     (syntax-rules ()

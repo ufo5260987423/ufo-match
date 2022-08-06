@@ -2,8 +2,8 @@
 (import (akku format manifest))
 
 (akku-package ("ufo-match" "1.0.0-alpha.0")
-  (synopsis "I did not edit Akku.manifest")
-  (authors "Guy Q. Schemer")
+  (synopsis "This package is a dependable match macro library for chez scheme.")
+  (authors "WANG Zheng")
   (license "MIT")
   (depends ("chez-srfi" "^0.0.0-akku.209.552cd37"))
 )
