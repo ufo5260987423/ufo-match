@@ -16,12 +16,7 @@
     (rnrs records procedural)
     (rnrs records inspection)
     (rnrs syntax-case)
-    (only (chezscheme) iota)
-    ; (only (chezscheme) iota include)
-   ;; avoid dependence on chez-srfi (apart for tests)
-   ;; (srfi private aux-keywords)
-   ;; (srfi private include)
-    )
+    (only (chezscheme) iota))
 
 
  ;; We declare end export the symbols used as auxiliary identifiers
@@ -83,37 +78,6 @@
                                       (iota (vector-length fields))))
                     (idx (cdr (assv n: fields-idxs))))
                ((record-mutator rtd idx) rec: val)))))))
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; 2021/06/21 - fix for `(a ...)' patterns where `a' is already bound
-;;              (thanks to Andy Wingo)
-;; 2020/09/04 - perf fix for `not`; rename `..=', `..=', `..1' per SRFI 204
-;; 2020/08/21 - fixing match-letrec with unhygienic insertion
-;; 2020/07/06 - adding `..=' and `..=' patterns; fixing ,& patterns
-;; 2016/10/05 - treat keywords as literals, not identifiers, in Chicken
-;; 2016/03/06 - fixing named match-let (thanks to Stefan Israelsson Tampe)
-;; 2015/05/09 - fixing bug in var extraction of quasiquote patterns
-;; 2014/11/24 - adding Gauche's `&' pattern for named record field matching
-;; 2012/12/26 - wrapping match-let&co body in lexical closure
-;; 2012/11/28 - fixing typo s/vetor/vector in largely unused set! code
-;; 2012/05/23 - fixing combinatorial explosion of code in certain or patterns
-;; 2011/09/25 - fixing bug when directly matching an identifier repeated in
-;;              the pattern (thanks to Stefan Israelsson Tampe)
-;; 2011/01/27 - fixing bug when matching tail patterns against improper lists
-;; 2010/09/26 - adding `..1' patterns (thanks to Ludovic Courtès)
-;; 2010/09/07 - fixing identifier extraction in some `...' and `***' patterns
-;; 2009/11/25 - adding `***' tree search patterns
-;; 2008/03/20 - fixing bug where (a ...) matched non-lists
-;; 2008/03/15 - removing redundant check in vector patterns
-;; 2008/03/06 - you can use `...' portably now (thanks to Taylor Campbell)
-;; 2007/09/04 - fixing quasiquote patterns
-;; 2007/07/21 - allowing ellipsis patterns in non-final list positions
-;; 2007/04/10 - fixing potential hygiene issue in match-check-ellipsis
-;;              (thanks to Taylor Campbell)
-;; 2007/04/08 - clean up, commenting
-;; 2006/12/24 - bugfixes
-;; 2006/12/01 - non-linear patterns, shared variables in OR, get!/set!
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; force compile-time syntax errors with useful messages
 

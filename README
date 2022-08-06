@@ -11,24 +11,19 @@ This package is also referenced to https://github.com/fedeinthemix/chez-matchabl
 # Some Revision
 1. Some procedure references in test are replaced. Like square, I replace it with sqrt for chez scheme.
 2. The @ operator is used for matching record types. However, it's not portable to chez scheme. And I replace it with &.
-3. 
 
 # API
-Usage please refer to tests/test-ufo-thread-pool.sps.
-
-1. (init-thread-pool size [blocked]) =>thread-pool
-3. (thread-pool? value)=>#t/#f
-4. (thread-pool-blocked?-ref pool)=>#t/#f
-5. (thread-pool-blocked?-change pool #f/#t)=>#t/#f
-6. (thread-pool-thread-number-ref pool)=>thread-number
-7. (thread-pool-job-number-ref pool)=>job-number
-8. (thread-pool-size-ref pool)=>size
-9. (thread-pool-size-add pool value)=>size
-10. (thread-pool-add-job pool job [fail-handler])=>result 
-11. (thread-pool-stop! pool)
-12. (with-thread-pool-increment pool body0 body1 ...)
+Detailed Usage please refer to tests/test-ufo-match.sps.
+1. (match expr (pattern (=> failure) . body) ...)
+2. match-lambda 
+3. match-lambda* 
+4. match-let 
+5. match-let* 
+6. match-letrec
+7. match-named-let
 
 # Test
+API 2-7 haven't been tested.
 > bash test.sh 
 
 # Alex Shinn's Notes
